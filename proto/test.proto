@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package generic;
+
+service TestService {
+  rpc test_rpc (TestRequest) returns (TestResponse) {}
+}
+
+message TestRequest {
+  string input = 1;
+}
+
+message TestResponse {
+  string output = 1;
+}

@@ -1,0 +1,34 @@
+# Python specific
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.egg-info/
+dist/
+build/
+*.egg
+*.egg-info
+*.pytest_cache/
+
+# TypeScript specific
+node_modules/
+dist/
+*.js
+*.js.map
+
+# Editor and IDE specific files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+*.swp          # Vim swap files
+*.swo          # Vim swap files
+*~             # Emacs backup files
+\#*\#          # Emacs autosave files (including subdirectories)
+.\#*
+.spacemacs.env # Spacemacs private environment
+
+# Miscellaneous
+*.log
+.DS_Store
+.env
