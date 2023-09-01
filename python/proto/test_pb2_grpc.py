@@ -2,7 +2,7 @@
 """Client and server classes corresponding to protobuf-defined services."""
 import grpc
 
-import test_pb2 as test__pb2
+from proto import test_pb2 as proto_dot_test__pb2
 
 
 class TestServiceStub(object):
@@ -16,8 +16,8 @@ class TestServiceStub(object):
         """
         self.test_rpc = channel.unary_unary(
                 '/generic.TestService/test_rpc',
-                request_serializer=test__pb2.TestRequest.SerializeToString,
-                response_deserializer=test__pb2.TestResponse.FromString,
+                request_serializer=proto_dot_test__pb2.TestRequest.SerializeToString,
+                response_deserializer=proto_dot_test__pb2.TestResponse.FromString,
                 )
 
 
@@ -35,8 +35,8 @@ def add_TestServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
             'test_rpc': grpc.unary_unary_rpc_method_handler(
                     servicer.test_rpc,
-                    request_deserializer=test__pb2.TestRequest.FromString,
-                    response_serializer=test__pb2.TestResponse.SerializeToString,
+                    request_deserializer=proto_dot_test__pb2.TestRequest.FromString,
+                    response_serializer=proto_dot_test__pb2.TestResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -60,7 +60,7 @@ class TestService(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/generic.TestService/test_rpc',
-            test__pb2.TestRequest.SerializeToString,
-            test__pb2.TestResponse.FromString,
+            proto_dot_test__pb2.TestRequest.SerializeToString,
+            proto_dot_test__pb2.TestResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

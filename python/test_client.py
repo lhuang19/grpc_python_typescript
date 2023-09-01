@@ -4,8 +4,7 @@ import math
 import time
 
 import grpc
-import test_pb2
-import test_pb2_grpc
+from proto import test_pb2, test_pb2_grpc
 
 
 def run():
